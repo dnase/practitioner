@@ -1,1 +1,1 @@
-Hi, welcome to <%= $fqdn %>
+Hi, welcome to <%= $::fqdn %>
