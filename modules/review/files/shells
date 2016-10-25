@@ -1,0 +1,7 @@
+# Managed by Puppet
+/bin/sh
+/bin/bash
+/sbin/nologin
+/bin/dash
+/bin/tcsh
+/bin/csh
