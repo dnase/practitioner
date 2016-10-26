@@ -6,19 +6,32 @@ class system::iteradmins {
     max_queries_per_hour => '600',
   }
 
+  User {
+    ensure     => present,
+    managehome => true,
+  }
+
   $users = {
-    'zee'  => {},
-    'drew' => { max_queries_per_hour => '1200' },
-    'abe'  => { ensure => absent },
+    'zee' => {
+      'm' => {},
+      'u' => {},
+    },
+    'drew' => {
+      'm'  => { max_queries_per_hour => '1200' },
+      'u'  => {},
+    },
+    'abe' => {
+      'm' => { ensure => absent },
+      'u' => { ensure => absent },
+    },
   }
 
   $users.each |$user, $params| {
     mysql_user { "${user}@localhost":
-      * => $params,
+      * => $params['m'],
     }
     user { $user:
-      ensure     => pick($params['ensure'], 'present'),
-      managehome => true,
+      * => $params['u'],
     }
   }
 }
