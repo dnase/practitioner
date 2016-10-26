@@ -17,7 +17,7 @@ class system::iteradmins {
       * => $params,
     }
     user { $user:
-      ensure     => present,
+      ensure     => pick($params['ensure'], 'present'),
       managehome => true,
     }
   }
