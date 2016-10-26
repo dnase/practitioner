@@ -1,5 +1,5 @@
 class review (
-  $user = 'review'
+  String $user = 'review'
 ) {
   File {
     owner => 'root',
