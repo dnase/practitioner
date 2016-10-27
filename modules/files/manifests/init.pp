@@ -25,6 +25,6 @@ class files {
   concat::fragment { 'sample motd message':
     target  => '/etc/motd',
     order   => '50',
-    content => "This is a sample motd message\n",
+    content => "What an awesome MOTD, OMG\n",
   }
 }
